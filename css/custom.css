@@ -1,0 +1,138 @@
+/* Add here all your CSS customizations */
+.title-footer{
+	color: #ffff00;
+	font-size: 25px;
+	font-weight: bold;
+}
+.page-default .gioithieu ul {
+	padding: 0px 10px 10px 20px;
+	list-style-type:
+}
+.page-default .gioithieu ul li{
+	padding: 5px;
+}
+.page-default .gioithieu ul li:before{
+	content: "\e6ac";
+	font-family: 'universh-icon';
+	margin-right: 5px;
+}
+.page-default .gioithieu h5{
+	font-weight: bold;
+}
+/* Hoi dap ***/
+#accordion{
+	height: 505px !important;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.text-red{
+	color: #ff0000;
+}
+.bold {
+	font-weight: bold;
+}
+.phanhoikhachhang{
+	height:500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+/********END HOI DAP*************/
+/* Booklet jQuery Plugin Style*/
+.booklet{
+	width:1000px;
+	height:707px;
+	position:relative;
+}
+.booklet .b-wrap-left  {
+	width: 500px;
+	height: 707px;
+}
+.booklet .b-wrap-right {
+	width: 500px;
+	height: 770px;
+}
+.booklet .b-counter {
+	
+}
+.book_wrapper{
+	margin:0 auto;
+	width:1030px;
+	height:707px;
+	position:relative;
+}
+
+.book_wrapper a.article,
+.book_wrapper a.demo{
+	
+}
+.book_wrapper a.demo{
+	
+}
+.book_wrapper a.article:hover,
+.book_wrapper a.demo:hover{
+	background-position:50% -41px;
+	color:#13386a;
+}
+.book_wrapper img{
+	margin:0px;
+	width: 500px;
+	height: 707px;
+}
+.booklet .b-wrap-right img{
+	
+}
+a#next_page_button,
+a#prev_page_button{
+	display:none;
+	position:absolute;
+	width:41px;
+	height:40px;
+	cursor:pointer;
+	margin-top:-20px;
+	top:50%;
+	background:transparent url(../images/buttons.png) no-repeat 0px -40px;
+}
+a#prev_page_button{
+	left:-30px;
+}
+a#next_page_button{
+	right:-30px;
+	background-position:-41px -40px;
+}
+a#next_page_button:hover{
+	background-position:-41px 0px;
+}
+a#prev_page_button:hover{
+	background-position:0px 0px;
+}
+.loading{
+	width:160px;
+	height:56px;
+	position: absolute;
+	top:50%;
+	margin-top:-28px;
+	right:135px;
+	line-height:56px;
+	color:#fff;
+	padding-left:60px;
+	font-size:15px;
+	background: #000 url(../images/ajax-loader.gif) no-repeat 10px 50%;
+	opacity: 0.7;
+	z-index:9999;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+
+.alert-red {
+	background-color: #ff0000;
+	color:#fff;
+}
+.alert-red h5 {
+	color:#fff;	
+}
+
+.event-img-wrap{
+	float: left;
+}
