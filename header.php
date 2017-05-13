@@ -94,7 +94,7 @@ $trangtienich_list = $trangtienich->get_all_list();
 	<div class="container">
 		<div class="logo">
 			<a href="index.html">
-				 <img alt="Siêu thị Tứ Sơn" height="80" width="222" data-sticky-width="167" data-sticky-height="60" src="images/default/logo.png">
+				 <img alt="Siêu thị Tứ Sơn" height="100" width="167" data-sticky-width="133" data-sticky-height="80" src="images/default/logo.png">
 			</a>
 		</div>
 		<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">

@@ -892,8 +892,9 @@ body.scrolling .nav-main-collapse.collapsing {
 	}
 
 	#header.colored > .container {
-		height: 107px;
+		height: 130px;
 		margin-bottom: -92px;
+		padding-top: 5px;
 	}
 
 	#header.colored .header-top p, #header.colored .header-top a, #header.colored .header-top span {

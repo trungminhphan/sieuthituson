@@ -251,6 +251,7 @@ html.fullwidth .container, html.fullwidth #header > .container {
 /* Wide */
 html.layout-wide .container, html.layout-wide #header > .container {
     max-width: 100%;
+
 }
 
 /* Headings */
@@ -887,6 +888,7 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><
 ====================== */
 .logo {
     display: inline-block;
+    margin-top:  5px;
 }
 .logo .slogan {
     line-height: 1.1;
