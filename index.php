@@ -52,9 +52,11 @@ $trangchu = new TrangChu();$t = $trangchu->get_one();
 													<h5><a href="chitiettintuc.html?id='.$tt['_id'].'">'.$tt['tieude'].'</a></h5>
 													<ul class="blog-meta">
 														<li><i class="fa fa-calendar-o"></i> Ngày đăng: '.date("d/m/Y H:i", $tt['date_post']->sec).'</li>
-													</ul>
-													<img width="300" height="100" src="'.$target_images.$tt['hinhanh'][0]['aliasname'].'" class="img-responsive" alt="Blog">
-													'.nl2p($tt['mota']).'													
+													</ul>';
+													if(isset($tt['hinhanh'][0]['aliasname']) && $tt['hinhanh'][0]['aliasname']){
+														echo '<img width="300" height="100" src="'.$target_images.$tt['hinhanh'][0]['aliasname'].'" class="img-responsive" alt="'.$tt['tieude'].'">';
+													}
+													echo nl2p($tt['mota']).'													
 													<a class="btn pull-right" href="chitiettintuc.html?id='.$tt['_id'].'">Xem tiếp</a>
 												</div>';$k++;
 											}} 
@@ -115,9 +117,11 @@ $trangchu = new TrangChu();$t = $trangchu->get_one();
 					$count = count($t['thongtinhanghoa'])-1;
 					for($i=0; $i<=$count; $i++){
 						$j = $count - $i;
+						if(isset($t['thongtinhanghoa'][$j]['aliasname']) && $t['thongtinhanghoa'][$j]['aliasname']){
 						echo '<div>
 								<img src="'.$target_images.$t['thongtinhanghoa'][$j]['aliasname'].'" alt="" />
 							</div>';
+						}
 					}
 				}
 				?>

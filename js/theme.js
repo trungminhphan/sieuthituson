@@ -1,9 +1,3 @@
-/*
-Name: 			theme.js
-Written by: 	Glorythemes - (http://www.glorythemes.in)
-Version: 		1.1.0
-*/
-
 // ------------------------------------------------------------------
 
 // ************************  CONTENTS   *****************************
@@ -53,16 +47,10 @@ Version: 		1.1.0
 //---------------------
 
 jQuery(window).load(function() {
-
 	prettyPhoto();
-
 	initIsotopeGrid();
-	
 	preload();
-
 });	
-
-
 //-----------------------
 // WINDOW RESIZE FUCNTION
 //-----------------------
@@ -1456,8 +1444,8 @@ function MapLoadScript() {
 	
 	var script = document.createElement('script');
 	script.type = 'text/javascript';
-	script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAAT3zaiO9ryRgreIPwHqWHIlmN3n9gGHU&v=3.exp&sensor=false&' + 'callback=GmapInit';
-	//script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDpJn4TOjxdVfAOToPnZnSyV8s5dmfLH6o&v=3.exp&sensor=false&' + 'callback=GmapInit';
+	script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCfVa32KSnXaJkPXgcfNSGBC_rfn2VJMsg&callback=initMap';
+	//script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCfVa32KSnXaJkPXgcfNSGBC_rfn2VJMsg&callback=initMap';
 	document.body.appendChild(script);
 }
  
