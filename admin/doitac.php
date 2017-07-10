@@ -31,7 +31,6 @@ if(isset($_POST['submit'])){
 <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
-<link href="assets/plugins/summernote/summernote.css" rel="stylesheet" />
 <!-- begin page-header -->
 <h1 class="page-header">SIÊU THỊ TỨ SƠN - DÀNH CHO ĐỐI TÁC</h1>
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" class="form-horizontal" data-parsley-validate="true" id="bannerform" enctype="multipart/form-data">
@@ -75,31 +74,31 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                     <label class="col-md-2 control-label">Giới thiệu</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="gioithieu" id="gioithieu" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['gioithieu']) ? $t['gioithieu'] : ''; ?></textarea>
+                        <textarea class="form-control" name="gioithieu" id="gioithieu" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['gioithieu']) ? $t['gioithieu'] : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Lợi ích khi tham gia</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="loiich" id="loiich" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['loiich']) ? $t['loiich'] : ''; ?></textarea>
+                        <textarea class="form-control" name="loiich" id="loiich" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['loiich']) ? $t['loiich'] : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Cách thức tham gia</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="cachthuc" id="cachthuc" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['cachthuc']) ? $t['cachthuc'] : ''; ?></textarea>
+                        <textarea class="form-control" name="cachthuc" id="cachthuc" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['cachthuc']) ? $t['cachthuc'] : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Yêu cầu khi trở thành nhà cung cấp</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="yeucau" id="yeucau" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['yeucau']) ? $t['yeucau'] : ''; ?></textarea>
+                        <textarea class="form-control" name="yeucau" id="yeucau" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['yeucau']) ? $t['yeucau'] : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Các đối tác đã tham gia</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="dathamgia" id="dathamgia" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['dathamgia']) ? $t['dathamgia'] : ''; ?></textarea>
+                        <textarea class="form-control" name="dathamgia" id="dathamgia" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['dathamgia']) ? $t['dathamgia'] : ''; ?></textarea>
                     </div>
                 </div>
             </div>
@@ -116,14 +115,42 @@ if(isset($_POST['submit'])){
 <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
 <script src="assets/plugins/parsley/dist/parsley.js"></script>
 <script type="text/javascript" src="assets/js/trangchu.js"></script>
-<script src="assets/plugins/summernote/summernote.min.js"></script>
-<script src="assets/js/form-summernote.demo.min.js"></script>
+<script src="assets/plugins/ckeditor/ckeditor.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
     $(document).ready(function() {
-        App.init();FormSummernote.init();
-        
+        CKEDITOR.replace('gioithieu', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('loiich', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('cachthuc', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('yeucau', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('dathamgia', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        App.init();
         upload_banner();delete_file();
         <?php if(isset($msg) && $msg) : ?>
         $.gritter.add({

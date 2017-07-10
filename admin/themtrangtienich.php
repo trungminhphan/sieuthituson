@@ -59,7 +59,6 @@ if($id && $act == 'edit'){
 <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
-<link href="assets/plugins/summernote/summernote.css" rel="stylesheet" />
 <!-- begin page-header -->
 <h1 class="page-header">SIÊU THỊ TỨ SƠN - THÔNG TIN TRANG TIỆN ÍCH</h1>
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" class="form-horizontal" data-parsley-validate="true" id="bannerform" enctype="multipart/form-data">
@@ -111,7 +110,7 @@ if($id && $act == 'edit'){
                 <div class="form-group">
                     <label class="col-md-2 control-label">Nội dung</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="noidung" id="noidung" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($noidung) ? $noidung : ''; ?></textarea>
+                        <textarea class="form-control" name="noidung" id="noidung" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($noidung) ? $noidung : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -140,12 +139,17 @@ if($id && $act == 'edit'){
 <script src="assets/plugins/switchery/switchery.min.js"></script>
 <script src="assets/js/form-slider-switcher.demo.min.js"></script>
 <script type="text/javascript" src="assets/js/trangchu.js"></script>
-<script src="assets/plugins/summernote/summernote.min.js"></script>
-<script src="assets/js/form-summernote.demo.min.js"></script>
+<script src="assets/plugins/ckeditor/ckeditor.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
     $(document).ready(function() {
+        CKEDITOR.replace('noidung', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
         upload_banner();delete_file();
         <?php if(isset($msg) && $msg) : ?>
         $.gritter.add({
@@ -156,6 +160,6 @@ if($id && $act == 'edit'){
             time:""
         });
         <?php endif; ?>
-        App.init();FormSummernote.init();FormSliderSwitcher.init();
+        App.init();FormSliderSwitcher.init();
     });
 </script>

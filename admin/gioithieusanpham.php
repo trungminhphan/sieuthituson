@@ -24,7 +24,6 @@ if(isset($_POST['submit'])){
 <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
-<link href="assets/plugins/summernote/summernote.css" rel="stylesheet" />
 <!-- begin page-header -->
 <h1 class="page-header">SIÊU THỊ TỨ SƠN - TRANG GIỚI THIỆU SẢN PHẨM</h1>
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" class="form-horizontal" data-parsley-validate="true" id="bannerform" enctype="multipart/form-data">
@@ -68,13 +67,13 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                     <label class="col-md-2 control-label">Cách thức đặt hàng</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="cachthucdathang" id="cachthucdathang" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['cachthucdathang']) ? $t['cachthucdathang'] : ''; ?></textarea>
+                        <textarea class="form-control" name="cachthucdathang" id="cachthucdathang" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['cachthucdathang']) ? $t['cachthucdathang'] : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Trở thành nhà cung cấp</label>
                     <div class="col-md-10">
-                        <textarea class="form-control summernote" name="trothanhnhacungcap" id="trothanhnhacungcap" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['trothanhnhacungcap']) ? $t['trothanhnhacungcap'] : ''; ?></textarea>
+                        <textarea class="form-control" name="trothanhnhacungcap" id="trothanhnhacungcap" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($t['trothanhnhacungcap']) ? $t['trothanhnhacungcap'] : ''; ?></textarea>
                     </div>
                 </div>
             </div>
@@ -91,12 +90,23 @@ if(isset($_POST['submit'])){
 <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
 <script src="assets/plugins/parsley/dist/parsley.js"></script>
 <script type="text/javascript" src="assets/js/trangchu.js"></script>
-<script src="assets/plugins/summernote/summernote.min.js"></script>
-<script src="assets/js/form-summernote.demo.min.js"></script>
+<script src="assets/plugins/ckeditor/ckeditor.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
     $(document).ready(function() {
+        CKEDITOR.replace('cachthucdathang', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('trothanhnhacungcap', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
         upload_banner();delete_file();
         <?php if(isset($msg) && $msg) : ?>
         $.gritter.add({
@@ -107,6 +117,6 @@ if(isset($_POST['submit'])){
             time:""
         });
         <?php endif; ?>
-        App.init();FormSummernote.init();
+        App.init();
     });
 </script>
