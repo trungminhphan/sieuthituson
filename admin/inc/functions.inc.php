@@ -153,6 +153,19 @@ function sort_array($arrays, $orderby, $sortby){
 	$arrays = array_combine($keys, $arrays);
 	return $arrays;
 }
+function sort_array_1($arrays, $orderby, $sortby){
+  foreach ($arrays as $id => $array) {
+    $array_sort[$id]  = $array[$orderby];
+  }
+  // Sort the data with weight descending, specialties ascending
+  // Add $data as the last parameter, to sort by the common key
+  $keys = array_keys($arrays);
+  array_multisort(
+    $array_sort, $sortby, SORT_NUMERIC,
+    $arrays, $keys
+  );
+  return $arrays;
+}
 function br2nl( $input ) {
  return preg_replace('/<br(\s+)?\/?>/i', "\n", $input);
 }

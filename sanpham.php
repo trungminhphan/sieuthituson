@@ -12,12 +12,14 @@ $loaisanpham_list = $loaisanpham->get_all_list();
 		<ul>
 		<?php foreach($gtsp['banner'] as $gtspb) : ?>
 			<li data-transition="fade" class="typo-dark heavy">
+			<?php echo $gtspb['link'] ? '<a href="'.$gtspb['link'].'">' : ''; ?>
 				<img src="<?php echo $target_images . $gtspb['aliasname']; ?>"  
 					alt=""
 					data-bgposition="center center" 
 					data-bgfit="cover" 
 					data-bgrepeat="no-repeat" 
 					class="rev-slidebg">
+				<?php echo $gtspb['link'] ? '</a>' : ''; ?>
 			</li>
 		<?php endforeach; ?>
 		</ul>

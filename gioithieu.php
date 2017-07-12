@@ -10,12 +10,14 @@ $gt = $gioithieu->get_one();
 		<ul>
 		<?php foreach($gt['banner'] as $gtb) : ?>
 			<li data-transition="fade" class="typo-dark heavy">
+			<?php echo $gtb['link'] ? '<a href="'.$gtb['link'].'">' : ''; ?>
 				<img src="<?php echo $target_images . $gtb['aliasname']; ?>"  
 					alt=""
 					data-bgposition="center center" 
 					data-bgfit="cover" 
 					data-bgrepeat="no-repeat" 
 					class="rev-slidebg">
+			<?php echo $gtb['link'] ? '</a>' : ''; ?>
 			</li>
 		<?php endforeach; ?>
 		</ul>

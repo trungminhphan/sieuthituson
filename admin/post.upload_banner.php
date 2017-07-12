@@ -21,7 +21,10 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 					$alias_name =  $alias . '_'. date("Ymdhms") . '.' . $extension;
 		            if(move_uploaded_file($_FILES["banner_files"]["tmp_name"][$f], $target_images.$alias_name))
 		            echo '<div class="items form-group">';
-		        	echo '<div class="col-md-6"><input type="text" name="banner_link[]" class="form-control" placeholder="Liên kết"></div>';
+		        	echo '<div class="col-md-1">
+                            <input type="number" class="form-control" name="banner_orders[]" value="0" />
+                        </div>';
+		        	echo '<div class="col-md-5"><input type="text" name="banner_link[]" class="form-control" placeholder="Liên kết"></div>';
 		        	echo '<div class="col-md-6">';
 		            echo '<div class="input-group">
                             <input type="hidden" class="form-control" name="banner_aliasname[]" value="'.$alias_name.'" readonly/>

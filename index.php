@@ -10,12 +10,14 @@ $trangchu = new TrangChu();$t = $trangchu->get_one();
 		<ul>
 		<?php foreach($t['banner'] as $tb) : ?>
 			<li data-transition="fade" class="typo-dark heavy">
+			<?php echo $tb['link'] ? '<a href="'.$tb['link'].'">' : ''; ?>
 				<img src="<?php echo $target_images . $tb['aliasname']; ?>"  
 					alt=""
 					data-bgposition="center center" 
 					data-bgfit="cover" 
 					data-bgrepeat="no-repeat" 
 					class="rev-slidebg">
+			<?php echo $tb['link'] ? '</a>' : ''; ?>
 			</li>
 		<?php endforeach; ?>
 		</ul>

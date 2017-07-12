@@ -9,12 +9,14 @@ $doitac = new DoiTac(); $dt = $doitac->get_one();
 		<ul>
 		<?php foreach($dt['banner'] as $dtb) : ?>
 			<li data-transition="fade" class="typo-dark heavy">
+			<?php echo $dtb['link'] ? '<a href="'.$dtb['link'].'">' : ''; ?>
 				<img src="<?php echo $target_images . $dtb['aliasname']; ?>"  
 					alt=""
 					data-bgposition="center center" 
 					data-bgfit="cover" 
 					data-bgrepeat="no-repeat" 
 					class="rev-slidebg">
+				<?php echo $dtb['link'] ? '</a>' : ''; ?>
 			</li>
 		<?php endforeach; ?>
 		</ul>

@@ -9,11 +9,13 @@ if(isset($_POST['submit'])){
         $banner_aliasname = isset($_POST['banner_aliasname']) ? $_POST['banner_aliasname'] : '';
         $banner_filename = isset($_POST['banner_filename']) ? $_POST['banner_filename'] : '';
         $banner_link = isset($_POST['banner_link']) ? $_POST['banner_link'] : '';
+        $banner_orders = isset($_POST['banner_orders']) ? $_POST['banner_orders'] : '';
         if($banner_aliasname){
             foreach ($banner_aliasname as $key => $value) {
-                array_push($arr_banner, array('filename' => $banner_filename[$key], 'aliasname' => $value, 'link' => $banner_link[$key]));
+                array_push($arr_banner, array('filename' => $banner_filename[$key], 'aliasname' => $value, 'link' => $banner_link[$key], 'orders' => $banner_orders[$key]));
             }
         }
+        $arr_banner = sort_array_1($arr_banner, 'orders', SORT_ASC);
         $trangchu->banner = $arr_banner;
         if($trangchu->edit_banner()) transfers_to('trangchu.html?msg=Lưu Banner thành công');
     }
@@ -28,11 +30,13 @@ if(isset($_POST['submit'])){
         $arr_hanghoa = array();
         $hanghoa_aliasname = isset($_POST['hanghoa_aliasname']) ? $_POST['hanghoa_aliasname'] : '';
         $hanghoa_filename = isset($_POST['hanghoa_filename']) ? $_POST['hanghoa_filename'] : '';
+        $hanghoa_orders = isset($_POST['hanghoa_orders']) ? $_POST['hanghoa_orders'] : '';
         if($hanghoa_aliasname){
             foreach ($hanghoa_aliasname as $key => $value) {
-                array_push($arr_hanghoa, array('filename' => $hanghoa_filename[$key], 'aliasname' => $value));
+                array_push($arr_hanghoa, array('filename' => $hanghoa_filename[$key], 'aliasname' => $value, 'orders' => $hanghoa_orders[$key]));
             }
         }
+        $arr_hanghoa = sort_array_1($arr_hanghoa, 'orders', SORT_ASC);
         $trangchu->thongtinhanghoa = $arr_hanghoa;
         if($trangchu->edit_thongtinhanghoa()) transfers_to('trangchu.html?msg=Lưu Thông tin hàng hóa thành công');
     }
@@ -72,8 +76,12 @@ if(isset($_POST['submit'])){
                 <?php
                 if($t['banner']){
                     foreach($t['banner'] as $banner){
+                        $orders = isset($banner['orders']) ? $banner['orders'] : 0;
                         echo '<div class="items form-group">';
-                        echo '<div class="col-md-6"><input type="text" name="banner_link[]" value="'.$banner['link'].'" class="form-control" placeholder="Liên kết"></div>';
+                        echo '<div class="col-md-1">
+                            <input type="number" class="form-control" name="banner_orders[]" value="'.$orders.'" />
+                          </div>';
+                        echo '<div class="col-md-5"><input type="text" name="banner_link[]" value="'.$banner['link'].'" class="form-control" placeholder="Liên kết"></div>';
                         echo '<div class="col-md-6">';
                         echo '<div class="input-group">
                                 <input type="hidden" class="form-control" name="banner_aliasname[]" value="'.$banner['aliasname'].'" readonly/>
@@ -175,8 +183,12 @@ if(isset($_POST['submit'])){
                 <?php
                 if($t['thongtinhanghoa']){
                     foreach($t['thongtinhanghoa'] as $h){
+                        $orders = isset($h['orders']) ? $h['orders'] : 0;
                         echo '<div class="items form-group">';
-                        echo '<div class="col-md-12">';
+                        echo '<div class="col-md-1">
+                            <input type="number" class="form-control" name="hanghoa_orders[]" value="'.$orders.'" />
+                          </div>';
+                        echo '<div class="col-md-11">';
                         echo '<div class="input-group">
                                 <input type="hidden" class="form-control" name="hanghoa_aliasname[]" value="'.$h['aliasname'].'" readonly/>
                                 <input type="text" class="form-control" name="hanghoa_filename[]" value="'.$h['filename'].'" readonly/>

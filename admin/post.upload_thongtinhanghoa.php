@@ -21,7 +21,10 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 					$alias_name =  $alias . '_'. date("Ymdhms") . '.' . $extension;
 		            if(move_uploaded_file($_FILES["hanghoa_files"]["tmp_name"][$f], $target_images.$alias_name))
 		            echo '<div class="items form-group">';
-		        	echo '<div class="col-md-12">';
+		        	echo '<div class="col-md-1">
+                            <input type="number" class="form-control" name="hanghoa_orders[]" value="0" />
+                          </div>';
+		        	echo '<div class="col-md-11">';
 		            echo '<div class="input-group">
                             <input type="hidden" class="form-control" name="hanghoa_aliasname[]" value="'.$alias_name.'" readonly/>
                         	<input type="text" class="form-control" name="hanghoa_filename[]" value="'.$name.'" readonly/>
