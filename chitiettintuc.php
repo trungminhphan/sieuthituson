@@ -99,11 +99,17 @@ $tintuc->id = $id; $tt = $tintuc->get_one();
 			<div id="loading" class="loading">Loading pages...</div>
 			<div id="mybook" style="display:none;">
 				<div class="b-load">
-				<?php for($i=1;$i<=32;$i++): ?>
-					<div>
-						<img src="images/thongtinhanghoa/<?php echo $i; ?>.png" alt=""/>
-					</div>
-				<?php endfor; ?>
+				<?php
+				if(isset($t['thongtinhanghoa']) && $t['thongtinhanghoa']){
+					foreach($t['thongtinhanghoa'] as $key => $tthh){
+						if(isset($tthh['aliasname']) && $tthh['aliasname']){
+						echo '<div>
+								<img src="'.$target_images.$tthh['aliasname'].'" alt="" />
+							</div>';
+						}
+					}
+				}
+				?>
 				</div>
 			</div>
 		</div>

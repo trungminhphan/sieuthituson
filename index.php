@@ -116,12 +116,10 @@ $trangchu = new TrangChu();$t = $trangchu->get_one();
 				<div class="b-load">
 				<?php
 				if(isset($t['thongtinhanghoa']) && $t['thongtinhanghoa']){
-					$count = count($t['thongtinhanghoa'])-1;
-					for($i=0; $i<=$count; $i++){
-						$j = $count - $i;
-						if(isset($t['thongtinhanghoa'][$j]['aliasname']) && $t['thongtinhanghoa'][$j]['aliasname']){
+					foreach($t['thongtinhanghoa'] as $key => $tthh){
+						if(isset($tthh['aliasname']) && $tthh['aliasname']){
 						echo '<div>
-								<img src="'.$target_images.$t['thongtinhanghoa'][$j]['aliasname'].'" alt="" />
+								<img src="'.$target_images.$tthh['aliasname'].'" alt="" />
 							</div>';
 						}
 					}

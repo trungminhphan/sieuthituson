@@ -42,7 +42,7 @@ class TinTuc {
 
 	public function get_list_home($dmtt){
 		$query = array('id_danhmuctintuc' => $dmtt, 'hienthi' => 1);
-		return $this->_collection->find($query)->limit(3);
+		return $this->_collection->find($query)->limit(3)->sort(array('date_post' => -1));
 	}
 
 	public function insert(){
