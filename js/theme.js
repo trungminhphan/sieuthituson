@@ -1444,7 +1444,7 @@ function MapLoadScript() {
 	
 	var script = document.createElement('script');
 	script.type = 'text/javascript';
-	script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCfVa32KSnXaJkPXgcfNSGBC_rfn2VJMsg&callback=initMap';
+	script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDSHe_dn7-PojQF5AXvLMbeo24_b267xeA&callback=initMap';
 	//script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCfVa32KSnXaJkPXgcfNSGBC_rfn2VJMsg&callback=initMap';
 	document.body.appendChild(script);
 }
